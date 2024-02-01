@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Layout, Image } from "antd";
+import SideMenu from "./components/SideMenu";
+import img from '../src/img/ATF.jpg'
+import AppRoutes from "./components/AppRoutes";
+
+const {Sider, Content, Footer} = Layout;
+
+const date = new Date().getFullYear()
+
+const logo = img
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Sider style={{height:'100vh', backgroundColor:'white'}}>
+        <Image src= {logo} preview={false} alt="logo"/>
+        <SideMenu/>
+      </Sider>
+      <Layout>
+        <Content style={{}}>
+          <AppRoutes/>
+        </Content>
+        <Footer style={{textAlign:'center', backgroundColor:'black'}}>
+          <p style={{color:'white'}}>Copyright &copy; <span>{date}</span> AT Food Restaurant Dashboard</p>
+        </Footer>
+      </Layout>
+    </Layout>
   );
 }
 
